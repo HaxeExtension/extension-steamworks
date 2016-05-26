@@ -358,18 +358,18 @@ class Controller
 		
 		try {
 			//Old-school CFFI calls:
-			SteamWrap_GetConnectedControllers = cpp.Lib.load("steamworks", "SteamWrap_GetConnectedControllers", 0);
-			SteamWrap_GetDigitalActionOrigins = cpp.Lib.load("steamworks", "SteamWrap_GetDigitalActionOrigins", 3);
-			SteamWrap_GetAnalogActionOrigins = cpp.Lib.load("steamworks", "SteamWrap_GetAnalogActionOrigins", 3);
-			SteamWrap_InitControllers = cpp.Lib.load("steamworks", "SteamWrap_InitControllers", 0);
-			SteamWrap_ShutdownControllers = cpp.Lib.load("steamworks", "SteamWrap_ShutdownControllers", 0);
+			SteamWrap_GetConnectedControllers = lime.system.CFFI.load("steamworks", "SteamWrap_GetConnectedControllers", 0);
+			SteamWrap_GetDigitalActionOrigins = lime.system.CFFI.load("steamworks", "SteamWrap_GetDigitalActionOrigins", 3);
+			SteamWrap_GetAnalogActionOrigins = lime.system.CFFI.load("steamworks", "SteamWrap_GetAnalogActionOrigins", 3);
+			SteamWrap_InitControllers = lime.system.CFFI.load("steamworks", "SteamWrap_InitControllers", 0);
+			SteamWrap_ShutdownControllers = lime.system.CFFI.load("steamworks", "SteamWrap_ShutdownControllers", 0);
 			
-			SteamWrap_GetControllerMaxCount = cpp.Lib.load("steamworks", "SteamWrap_GetControllerMaxCount", 0);
-			SteamWrap_GetControllerMaxAnalogActions = cpp.Lib.load("steamworks", "SteamWrap_GetControllerMaxAnalogActions", 0);
-			SteamWrap_GetControllerMaxDigitalActions = cpp.Lib.load("steamworks", "SteamWrap_GetControllerMaxDigitalActions", 0);
-			SteamWrap_GetControllerMaxOrigins = cpp.Lib.load("steamworks", "SteamWrap_GetControllerMaxOrigins", 0);
-			SteamWrap_GetControllerMaxAnalogActionData = cpp.Lib.load("steamworks", "SteamWrap_GetControllerMaxAnalogActionData", 0);
-			SteamWrap_GetControllerMinAnalogActionData = cpp.Lib.load("steamworks", "SteamWrap_GetControllerMinAnalogActionData", 0);
+			SteamWrap_GetControllerMaxCount = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxCount", 0);
+			SteamWrap_GetControllerMaxAnalogActions = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxAnalogActions", 0);
+			SteamWrap_GetControllerMaxDigitalActions = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxDigitalActions", 0);
+			SteamWrap_GetControllerMaxOrigins = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxOrigins", 0);
+			SteamWrap_GetControllerMaxAnalogActionData = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxAnalogActionData", 0);
+			SteamWrap_GetControllerMinAnalogActionData = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMinAnalogActionData", 0);
 		}
 		catch (e:Dynamic) {
 			customTrace("Running non-Steam version (" + e + ")");
