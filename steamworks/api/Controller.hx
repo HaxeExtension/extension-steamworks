@@ -63,7 +63,7 @@ class Controller
 	 */
 	public function activateActionSet(controller:Int, actionSet:Int):Int {
 		if (!active) return 0;
-		return SteamWrap_ActivateActionSet.call(controller, actionSet);
+		return SteamWrap_ActivateActionSet (controller, actionSet);
 	}
 	
 	/**
@@ -74,7 +74,7 @@ class Controller
 	 */
 	public function getCurrentActionSet(controller:Int):Int {
 		if (!active) return -1;
-		return SteamWrap_GetCurrentActionSet.call(controller);
+		return SteamWrap_GetCurrentActionSet (controller);
 	}
 	
 	/**
@@ -85,7 +85,7 @@ class Controller
 	 */
 	public function getActionSetHandle(name:String):Int {
 		if (!active) return -1;
-		return SteamWrap_GetActionSetHandle.call(name);
+		return SteamWrap_GetActionSetHandle(name);
 	}
 	
 	/**
@@ -103,10 +103,10 @@ class Controller
 		
 		if (!active) return data;
 		
-		data.bActive = SteamWrap_GetAnalogActionData.call(controller, action);
-		data.eMode = cast SteamWrap_GetAnalogActionData_eMode.call(0);
-		data.x = SteamWrap_GetAnalogActionData_x.call(0);
-		data.y = SteamWrap_GetAnalogActionData_y.call(0);
+		data.bActive = SteamWrap_GetAnalogActionData(controller, action);
+		data.eMode = cast SteamWrap_GetAnalogActionData_eMode(0);
+		data.x = SteamWrap_GetAnalogActionData_x(0);
+		data.y = SteamWrap_GetAnalogActionData_y(0);
 		
 		return data;
 	}
@@ -119,7 +119,7 @@ class Controller
 	 */
 	public function getAnalogActionHandle(name:String):Int {
 		if (!active) return -1;
-		return SteamWrap_GetAnalogActionHandle.call(name);
+		return SteamWrap_GetAnalogActionHandle(name);
 	}
 	
 	/**
@@ -184,7 +184,7 @@ class Controller
 	 */
 	public function getDigitalActionData(controller:Int, action:Int):ControllerDigitalActionData {
 		if (!active) return new ControllerDigitalActionData(0);
-		return new ControllerDigitalActionData(SteamWrap_GetDigitalActionData.call(controller, action));
+		return new ControllerDigitalActionData(SteamWrap_GetDigitalActionData(controller, action));
 	}
 	
 	/**
@@ -195,7 +195,7 @@ class Controller
 	 */
 	public function getDigitalActionHandle(name:String):Int {
 		if (!active) return -1;
-		return SteamWrap_GetDigitalActionHandle.call(name);
+		return SteamWrap_GetDigitalActionHandle(name);
 	}
 	
 	/**
@@ -286,7 +286,7 @@ class Controller
 		switch(targetPad)
 		{
 			case LEFT, RIGHT:
-				SteamWrap_TriggerHapticPulse.call(controller, cast targetPad, durationMicroSec);	
+				SteamWrap_TriggerHapticPulse(controller, cast targetPad, durationMicroSec);	
 			case BOTH:
 				triggerHapticPulse(controller,  LEFT, durationMicroSec);
 				triggerHapticPulse(controller, RIGHT, durationMicroSec);
@@ -309,7 +309,7 @@ class Controller
 		switch(targetPad)
 		{
 			case LEFT, RIGHT:
-				SteamWrap_TriggerRepeatedHapticPulse.call(controller, cast targetPad, durationMicroSec, offMicroSec, repeat, flags);
+				SteamWrap_TriggerRepeatedHapticPulse(controller, cast targetPad, durationMicroSec, offMicroSec, repeat, flags);
 			case BOTH:
 				triggerRepeatedHapticPulse(controller,  LEFT, durationMicroSec, offMicroSec, repeat, flags);
 				triggerRepeatedHapticPulse(controller, RIGHT, durationMicroSec, offMicroSec, repeat, flags);
@@ -337,18 +337,18 @@ class Controller
 	private static var SteamWrap_GetControllerMinAnalogActionData:Dynamic;
 	
 	//CFFI PRIME calls
-	private var SteamWrap_ActivateActionSet       = CFFI.load("steamworks", "SteamWrap_ActivateActionSet",2);
-	private var SteamWrap_GetCurrentActionSet     = CFFI.load("steamworks", "SteamWrap_GetCurrentActionSet",1);
-	private var SteamWrap_GetActionSetHandle      = CFFI.load("steamworks", "SteamWrap_GetActionSetHandle",1);
-	private var SteamWrap_GetAnalogActionData     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData", 2);
-	private var SteamWrap_GetAnalogActionHandle   = CFFI.load("steamworks", "SteamWrap_GetAnalogActionHandle",1);
-	private var SteamWrap_GetDigitalActionData    = CFFI.load("steamworks", "SteamWrap_GetDigitalActionData", 2);
-		private var SteamWrap_GetAnalogActionData_eMode = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_eMode", 1);
-		private var SteamWrap_GetAnalogActionData_x     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_x", 1);
-		private var SteamWrap_GetAnalogActionData_y     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_y", 1);
-	private var SteamWrap_GetDigitalActionHandle  = CFFI.load("steamworks", "SteamWrap_GetDigitalActionHandle", 1);
-	private var SteamWrap_TriggerHapticPulse      = CFFI.load("steamworks", "SteamWrap_TriggerHapticPulse", 3);
-	private var SteamWrap_TriggerRepeatedHapticPulse = CFFI.load("steamworks", "SteamWrap_TriggerRepeatedHapticPulse", 6);
+	private static var SteamWrap_ActivateActionSet       = CFFI.load("steamworks", "SteamWrap_ActivateActionSet",2);
+	private static var SteamWrap_GetCurrentActionSet     = CFFI.load("steamworks", "SteamWrap_GetCurrentActionSet",1);
+	private static var SteamWrap_GetActionSetHandle      = CFFI.load("steamworks", "SteamWrap_GetActionSetHandle",1);
+	private static var SteamWrap_GetAnalogActionData     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData", 2);
+	private static var SteamWrap_GetAnalogActionHandle   = CFFI.load("steamworks", "SteamWrap_GetAnalogActionHandle",1);
+	private static var SteamWrap_GetDigitalActionData    = CFFI.load("steamworks", "SteamWrap_GetDigitalActionData", 2);
+		private static var SteamWrap_GetAnalogActionData_eMode = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_eMode", 1);
+		private static var SteamWrap_GetAnalogActionData_x     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_x", 1);
+		private static var SteamWrap_GetAnalogActionData_y     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_y", 1);
+	private static var SteamWrap_GetDigitalActionHandle  = CFFI.load("steamworks", "SteamWrap_GetDigitalActionHandle", 1);
+	private static var SteamWrap_TriggerHapticPulse      = CFFI.load("steamworks", "SteamWrap_TriggerHapticPulse", 3);
+	private static var SteamWrap_TriggerRepeatedHapticPulse = CFFI.load("steamworks", "SteamWrap_TriggerRepeatedHapticPulse", 6);
 	
 	private function new(CustomTrace:String->Void) {
 		#if sys		//TODO: figure out what targets this will & won't work with and upate this guard
