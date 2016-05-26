@@ -11,7 +11,7 @@ Installation
 
 You can easily install Steamworks using haxelib:
 
-    haxelib install extension-iap
+    haxelib install extension-steamworks
 
 To add it to a Lime or OpenFL project, add this to your project file:
 
