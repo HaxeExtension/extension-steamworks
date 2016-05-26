@@ -1,8 +1,5 @@
 package steamworks.api;
-import cpp.Lib;
 import steamworks.api.Steam;
-import steamworks.helpers.Loader;
-import steamworks.helpers.MacroHelper;
 
 /**
  * The User Generated Content API. Used by API.hx, should never be created manually by the user.
