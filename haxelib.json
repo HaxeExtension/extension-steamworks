@@ -1,12 +1,12 @@
 {
- "name": "steamwrap",
- "url" : "https://github.com/larsiusprime/steamwrap",
+ "name": "extension-steamworks",
+ "url" : "https://github.com/openfl/extension-steamworks",
  "license": "MIT",
  "tags": ["steam","game","api"],
  "description": "API integration for the Steam Client",
  "version": "1.0.0",
  "releasenote": "Initial Release",
- "contributors": ["dukope,grapefrukt,sharkpunch,larsiusprime"],
+ "contributors": ["dukope,grapefrukt,sharkpunch,larsiusprime,jgranick"],
  "dependencies": { 
   "hxcpp": ""
  }
