@@ -88,14 +88,14 @@ class UGC
 		
 		try {
 			//Old-school CFFI calls:
-			SteamWrap_CreateUGCItem = cpp.Lib.load("steamwrap", "SteamWrap_CreateUGCItem", 1);
-			SteamWrap_SetUGCItemContent = cpp.Lib.load("steamwrap", "SteamWrap_SetUGCItemContent", 2);
-			SteamWrap_SetUGCItemDescription = cpp.Lib.load("steamwrap", "SteamWrap_SetUGCItemDescription", 2);
-			SteamWrap_SetUGCItemPreviewImage = cpp.Lib.load("steamwrap", "SteamWrap_SetUGCItemPreviewImage", 2);
-			SteamWrap_SetUGCItemTitle = cpp.Lib.load("steamwrap", "SteamWrap_SetUGCItemTitle", 2);
-			SteamWrap_SetUGCItemVisibility = cpp.Lib.load("steamwrap", "SteamWrap_SetUGCItemVisibility", 2);
-			SteamWrap_StartUpdateUGCItem = cpp.Lib.load("steamwrap", "SteamWrap_StartUpdateUGCItem", 2);
-			SteamWrap_SubmitUGCItemUpdate = cpp.Lib.load("steamwrap", "SteamWrap_SubmitUGCItemUpdate", 2);
+			SteamWrap_CreateUGCItem = cpp.Lib.load("steamworks", "SteamWrap_CreateUGCItem", 1);
+			SteamWrap_SetUGCItemContent = cpp.Lib.load("steamworks", "SteamWrap_SetUGCItemContent", 2);
+			SteamWrap_SetUGCItemDescription = cpp.Lib.load("steamworks", "SteamWrap_SetUGCItemDescription", 2);
+			SteamWrap_SetUGCItemPreviewImage = cpp.Lib.load("steamworks", "SteamWrap_SetUGCItemPreviewImage", 2);
+			SteamWrap_SetUGCItemTitle = cpp.Lib.load("steamworks", "SteamWrap_SetUGCItemTitle", 2);
+			SteamWrap_SetUGCItemVisibility = cpp.Lib.load("steamworks", "SteamWrap_SetUGCItemVisibility", 2);
+			SteamWrap_StartUpdateUGCItem = cpp.Lib.load("steamworks", "SteamWrap_StartUpdateUGCItem", 2);
+			SteamWrap_SubmitUGCItemUpdate = cpp.Lib.load("steamworks", "SteamWrap_SubmitUGCItemUpdate", 2);
 		}
 		catch (e:Dynamic) {
 			customTrace("Running non-Steam version (" + e + ")");
