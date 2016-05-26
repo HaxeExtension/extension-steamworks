@@ -2,6 +2,7 @@ package steamworks.helpers;
 
 #if macro
 import haxe.macro.Expr;
+import lime.system.CFFI;
 #end
 
 
