@@ -19,6 +19,6 @@ class Loader
 
    public static inline macro function load(inName2:Expr, inSig:Expr)
    {
-      return macro lime.system.CFFI.loadPrime("steamworks", $inName2, $inSig, false);
+      return macro cpp.Prime.load("steamworks", $inName2, $inSig, false);
    }
 }
