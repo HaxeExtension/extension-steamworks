@@ -115,7 +115,7 @@ class Main extends Sprite {
 	}
 	
 	
-	private static function steamWrap_onLeaderboardScoreDownloaded(score:steamwrap.api.Steam.LeaderboardScore)
+	private static function steamWrap_onLeaderboardScoreDownloaded(score:Steam.LeaderboardScore)
 	{
 		trace("Leaderboard score downloaded: " + score.toString());
 	}
