@@ -334,18 +334,18 @@ class Controller
 	private static var SteamWrap_GetControllerMinAnalogActionData:Dynamic;
 	
 	//CFFI PRIME calls
-	private var SteamWrap_ActivateActionSet       = lime.system.CFFI.loadPrime("SteamWrap_ActivateActionSet","iii");
-	private var SteamWrap_GetCurrentActionSet     = lime.system.CFFI.loadPrime("SteamWrap_GetCurrentActionSet","ii");
-	private var SteamWrap_GetActionSetHandle      = lime.system.CFFI.loadPrime("SteamWrap_GetActionSetHandle","ci");
-	private var SteamWrap_GetAnalogActionData     = lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData", "iii");
-	private var SteamWrap_GetAnalogActionHandle   = lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionHandle","ci");
-	private var SteamWrap_GetDigitalActionData    = lime.system.CFFI.loadPrime("SteamWrap_GetDigitalActionData", "iii");
-		private var SteamWrap_GetAnalogActionData_eMode = lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData_eMode", "ii");
-		private var SteamWrap_GetAnalogActionData_x     = lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData_x", "if");
-		private var SteamWrap_GetAnalogActionData_y     = lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData_y", "if");
-	private var SteamWrap_GetDigitalActionHandle  = lime.system.CFFI.loadPrime("SteamWrap_GetDigitalActionHandle", "ci");
-	private var SteamWrap_TriggerHapticPulse      = lime.system.CFFI.loadPrime("SteamWrap_TriggerHapticPulse", "iiiv");
-	private var SteamWrap_TriggerRepeatedHapticPulse = lime.system.CFFI.loadPrime("SteamWrap_TriggerRepeatedHapticPulse", "iiiiiiv");
+	private var SteamWrap_ActivateActionSet       = macro lime.system.CFFI.loadPrime("SteamWrap_ActivateActionSet","iii");
+	private var SteamWrap_GetCurrentActionSet     = macro lime.system.CFFI.loadPrime("SteamWrap_GetCurrentActionSet","ii");
+	private var SteamWrap_GetActionSetHandle      = macro lime.system.CFFI.loadPrime("SteamWrap_GetActionSetHandle","ci");
+	private var SteamWrap_GetAnalogActionData     = macro lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData", "iii");
+	private var SteamWrap_GetAnalogActionHandle   = macro lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionHandle","ci");
+	private var SteamWrap_GetDigitalActionData    = macro lime.system.CFFI.loadPrime("SteamWrap_GetDigitalActionData", "iii");
+		private var SteamWrap_GetAnalogActionData_eMode = macro lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData_eMode", "ii");
+		private var SteamWrap_GetAnalogActionData_x     = macro lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData_x", "if");
+		private var SteamWrap_GetAnalogActionData_y     = macro lime.system.CFFI.loadPrime("SteamWrap_GetAnalogActionData_y", "if");
+	private var SteamWrap_GetDigitalActionHandle  = macro lime.system.CFFI.loadPrime("SteamWrap_GetDigitalActionHandle", "ci");
+	private var SteamWrap_TriggerHapticPulse      = macro lime.system.CFFI.loadPrime("SteamWrap_TriggerHapticPulse", "iiiv");
+	private var SteamWrap_TriggerRepeatedHapticPulse = macro lime.system.CFFI.loadPrime("SteamWrap_TriggerRepeatedHapticPulse", "iiiiiiv");
 	
 	private function new(CustomTrace:String->Void) {
 		#if sys		//TODO: figure out what targets this will & won't work with and upate this guard
