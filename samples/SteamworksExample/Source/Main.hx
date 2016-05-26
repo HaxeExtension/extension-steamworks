@@ -104,7 +104,24 @@ class Main extends Sprite {
 			}
 		}
 		
-		addEventListener (Event.ENTER_FRAME, this_onEnterFrame);
+		addEventListener (Event.ENTER_FRAME, function (_) {
+			
+			Steam.onEnterFrame();
+			
+			if (controllers != null && controllers.length > 0)
+			{
+				Steam.controllers.activateActionSet(controllers[0], inGameControls);
+				var currentActionSet = Steam.controllers.getCurrentActionSet(controllers[0]);
+				trace("current action set = " + currentActionSet);
+				
+				var fireData = Steam.controllers.getDigitalActionData(controllers[0], fire);
+				trace("fireData: bState = " + fireData.bState + " bActive = " + fireData.bActive);
+				
+				var moveData = Steam.controllers.getAnalogActionData(controllers[0], move);
+				trace("moveData: eMode = " + moveData.eMode + " x/y = " + moveData.x + "/" + moveData.y + " bActive = " + moveData.bActive);
+			}
+			
+		});
 		
 	}
 	
@@ -115,29 +132,9 @@ class Main extends Sprite {
 	}
 	
 	
-	private static function steamWrap_onLeaderboardScoreDownloaded(score:Steam.LeaderboardScore)
+	private static function steamWrap_onLeaderboardScoreDownloaded(score:LeaderboardScore)
 	{
 		trace("Leaderboard score downloaded: " + score.toString());
-	}
-	
-	
-	private function this_onEnterFrame (event:Event):Void {
-		
-		Steam.onEnterFrame();
-		
-		if (controllers != null && controllers.length > 0)
-		{
-			Steam.controllers.activateActionSet(controllers[0], inGameControls);
-			var currentActionSet = Steam.controllers.getCurrentActionSet(controllers[0]);
-			trace("current action set = " + currentActionSet);
-			
-			var fireData = Steam.controllers.getDigitalActionData(controllers[0], fire);
-			trace("fireData: bState = " + fireData.bState + " bActive = " + fireData.bActive);
-			
-			var moveData = Steam.controllers.getAnalogActionData(controllers[0], move);
-			trace("moveData: eMode = " + moveData.eMode + " x/y = " + moveData.x + "/" + moveData.y + " bActive = " + moveData.bActive);
-		}
-		
 	}
 	
 	
