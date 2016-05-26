@@ -1,5 +1,7 @@
 package steamworks.api;
+
 import haxe.Int64;
+import lime.system.CFFI;
 
 private enum LeaderboardOp
 {
@@ -68,36 +70,36 @@ class Steam
 		leaderboardOps = new List<LeaderboardOp>();
 		
 		try {
-			SteamWrap_ClearAchievement = lime.system.CFFI.load("steamworks", "SteamWrap_ClearAchievement", 1);
-			SteamWrap_DownloadScores = lime.system.CFFI.load("steamworks", "SteamWrap_DownloadScores", 3);
-			SteamWrap_FindLeaderboard = lime.system.CFFI.load("steamworks", "SteamWrap_FindLeaderboard", 1);
-			SteamWrap_GetCurrentGameLanguage = lime.system.CFFI.load("steamworks", "SteamWrap_GetCurrentGameLanguage", 0);
-			SteamWrap_GetGlobalStat = lime.system.CFFI.load("steamworks", "SteamWrap_GetGlobalStat", 1);
-			SteamWrap_GetStat = lime.system.CFFI.load("steamworks", "SteamWrap_GetStat", 1);
-			SteamWrap_GetStatFloat = lime.system.CFFI.load("steamworks", "SteamWrap_GetStatFloat", 1);
-			SteamWrap_GetStatInt = lime.system.CFFI.load("steamworks", "SteamWrap_GetStatInt", 1);
-			SteamWrap_IndicateAchievementProgress = lime.system.CFFI.load("steamworks", "SteamWrap_IndicateAchievementProgress", 3);
-			SteamWrap_Init = lime.system.CFFI.load("steamworks", "SteamWrap_Init", 2);
-			SteamWrap_IsSteamRunning = lime.system.CFFI.load("steamworks", "SteamWrap_IsSteamRunning", 0);
-			SteamWrap_RequestStats = lime.system.CFFI.load("steamworks", "SteamWrap_RequestStats", 0);
-			SteamWrap_RunCallbacks = lime.system.CFFI.load("steamworks", "SteamWrap_RunCallbacks", 0);
-			SteamWrap_SetAchievement = lime.system.CFFI.load("steamworks", "SteamWrap_SetAchievement", 1);
-			SteamWrap_GetAchievement = lime.system.CFFI.load("steamworks", "SteamWrap_GetAchievement", 1);
-			SteamWrap_GetAchievementDisplayAttribute = lime.system.CFFI.load("steamworks", "SteamWrap_GetAchievementDisplayAttribute", 2);
-			SteamWrap_GetNumAchievements = lime.system.CFFI.load("steamworks", "SteamWrap_GetNumAchievements", 0);
-			SteamWrap_GetAchievementName = lime.system.CFFI.load("steamworks", "SteamWrap_GetAchievementName", 1);
-			SteamWrap_SetStat = lime.system.CFFI.load("steamworks", "SteamWrap_SetStat", 2);
-			SteamWrap_SetStatFloat = lime.system.CFFI.load("steamworks", "SteamWrap_SetStatFloat", 2);
-			SteamWrap_SetStatInt = lime.system.CFFI.load("steamworks", "SteamWrap_SetStatInt", 2);
-			SteamWrap_Shutdown = lime.system.CFFI.load("steamworks", "SteamWrap_Shutdown", 0);
-			SteamWrap_StoreStats = lime.system.CFFI.load("steamworks", "SteamWrap_StoreStats", 0);
-			SteamWrap_UploadScore = lime.system.CFFI.load("steamworks", "SteamWrap_UploadScore", 3);
-			SteamWrap_RequestGlobalStats = lime.system.CFFI.load("steamworks", "SteamWrap_RequestGlobalStats", 0);
-			SteamWrap_RestartAppIfNecessary = lime.system.CFFI.load("steamworks", "SteamWrap_RestartAppIfNecessary", 1);
-			SteamWrap_OpenOverlay = lime.system.CFFI.load("steamworks", "SteamWrap_OpenOverlay", 1);
+			SteamWrap_ClearAchievement = CFFI.load("steamworks", "SteamWrap_ClearAchievement", 1);
+			SteamWrap_DownloadScores = CFFI.load("steamworks", "SteamWrap_DownloadScores", 3);
+			SteamWrap_FindLeaderboard = CFFI.load("steamworks", "SteamWrap_FindLeaderboard", 1);
+			SteamWrap_GetCurrentGameLanguage = CFFI.load("steamworks", "SteamWrap_GetCurrentGameLanguage", 0);
+			SteamWrap_GetGlobalStat = CFFI.load("steamworks", "SteamWrap_GetGlobalStat", 1);
+			SteamWrap_GetStat = CFFI.load("steamworks", "SteamWrap_GetStat", 1);
+			SteamWrap_GetStatFloat = CFFI.load("steamworks", "SteamWrap_GetStatFloat", 1);
+			SteamWrap_GetStatInt = CFFI.load("steamworks", "SteamWrap_GetStatInt", 1);
+			SteamWrap_IndicateAchievementProgress = CFFI.load("steamworks", "SteamWrap_IndicateAchievementProgress", 3);
+			SteamWrap_Init = CFFI.load("steamworks", "SteamWrap_Init", 2);
+			SteamWrap_IsSteamRunning = CFFI.load("steamworks", "SteamWrap_IsSteamRunning", 0);
+			SteamWrap_RequestStats = CFFI.load("steamworks", "SteamWrap_RequestStats", 0);
+			SteamWrap_RunCallbacks = CFFI.load("steamworks", "SteamWrap_RunCallbacks", 0);
+			SteamWrap_SetAchievement = CFFI.load("steamworks", "SteamWrap_SetAchievement", 1);
+			SteamWrap_GetAchievement = CFFI.load("steamworks", "SteamWrap_GetAchievement", 1);
+			SteamWrap_GetAchievementDisplayAttribute = CFFI.load("steamworks", "SteamWrap_GetAchievementDisplayAttribute", 2);
+			SteamWrap_GetNumAchievements = CFFI.load("steamworks", "SteamWrap_GetNumAchievements", 0);
+			SteamWrap_GetAchievementName = CFFI.load("steamworks", "SteamWrap_GetAchievementName", 1);
+			SteamWrap_SetStat = CFFI.load("steamworks", "SteamWrap_SetStat", 2);
+			SteamWrap_SetStatFloat = CFFI.load("steamworks", "SteamWrap_SetStatFloat", 2);
+			SteamWrap_SetStatInt = CFFI.load("steamworks", "SteamWrap_SetStatInt", 2);
+			SteamWrap_Shutdown = CFFI.load("steamworks", "SteamWrap_Shutdown", 0);
+			SteamWrap_StoreStats = CFFI.load("steamworks", "SteamWrap_StoreStats", 0);
+			SteamWrap_UploadScore = CFFI.load("steamworks", "SteamWrap_UploadScore", 3);
+			SteamWrap_RequestGlobalStats = CFFI.load("steamworks", "SteamWrap_RequestGlobalStats", 0);
+			SteamWrap_RestartAppIfNecessary = CFFI.load("steamworks", "SteamWrap_RestartAppIfNecessary", 1);
+			SteamWrap_OpenOverlay = CFFI.load("steamworks", "SteamWrap_OpenOverlay", 1);
 		}
 		catch (e:Dynamic) {
-			customTrace("Running non-Steam version (" + e + ")");
+			trace("Running non-Steam version (" + e + ")");
 			return;
 		}
 		
@@ -106,7 +108,7 @@ class Steam
 		active = SteamWrap_Init(steamWrap_onEvent, notificationPosition);
 		
 		if (active) {
-			customTrace("Steam active");
+			trace("Steam active");
 			SteamWrap_RequestStats();
 			SteamWrap_RequestGlobalStats();
 			
@@ -115,7 +117,7 @@ class Steam
 			controllers = new Controller(customTrace);
 		}
 		else {
-			customTrace("Steam failed to activate");
+			trace("Steam failed to activate");
 			// restart under Steam
 			wantQuit = true;
 		}

@@ -1,6 +1,7 @@
 package steamworks.api;
+
+import lime.system.CFFI;
 import steamworks.helpers.MacroHelper;
-import steamworks.helpers.Loader;
 
 /**
  * The Steam Controller API. Used by API.hx, should never be created manually by the user.
@@ -9,6 +10,7 @@ import steamworks.helpers.Loader;
  */
 
 @:allow(steamworks.api.Steam)
+
 class Controller
 {
 	/**
@@ -335,18 +337,18 @@ class Controller
 	private static var SteamWrap_GetControllerMinAnalogActionData:Dynamic;
 	
 	//CFFI PRIME calls
-	private var SteamWrap_ActivateActionSet       = Loader.load("SteamWrap_ActivateActionSet","iii");
-	private var SteamWrap_GetCurrentActionSet     = Loader.load("SteamWrap_GetCurrentActionSet","ii");
-	private var SteamWrap_GetActionSetHandle      = Loader.load("SteamWrap_GetActionSetHandle","ci");
-	private var SteamWrap_GetAnalogActionData     = Loader.load("SteamWrap_GetAnalogActionData", "iii");
-	private var SteamWrap_GetAnalogActionHandle   = Loader.load("SteamWrap_GetAnalogActionHandle","ci");
-	private var SteamWrap_GetDigitalActionData    = Loader.load("SteamWrap_GetDigitalActionData", "iii");
-		private var SteamWrap_GetAnalogActionData_eMode = Loader.load("SteamWrap_GetAnalogActionData_eMode", "ii");
-		private var SteamWrap_GetAnalogActionData_x     = Loader.load("SteamWrap_GetAnalogActionData_x", "if");
-		private var SteamWrap_GetAnalogActionData_y     = Loader.load("SteamWrap_GetAnalogActionData_y", "if");
-	private var SteamWrap_GetDigitalActionHandle  = Loader.load("SteamWrap_GetDigitalActionHandle", "ci");
-	private var SteamWrap_TriggerHapticPulse      = Loader.load("SteamWrap_TriggerHapticPulse", "iiiv");
-	private var SteamWrap_TriggerRepeatedHapticPulse = Loader.load("SteamWrap_TriggerRepeatedHapticPulse", "iiiiiiv");
+	private var SteamWrap_ActivateActionSet       = CFFI.load("steamworks", "SteamWrap_ActivateActionSet",2);
+	private var SteamWrap_GetCurrentActionSet     = CFFI.load("steamworks", "SteamWrap_GetCurrentActionSet",1);
+	private var SteamWrap_GetActionSetHandle      = CFFI.load("steamworks", "SteamWrap_GetActionSetHandle",1);
+	private var SteamWrap_GetAnalogActionData     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData", 2);
+	private var SteamWrap_GetAnalogActionHandle   = CFFI.load("steamworks", "SteamWrap_GetAnalogActionHandle",1);
+	private var SteamWrap_GetDigitalActionData    = CFFI.load("steamworks", "SteamWrap_GetDigitalActionData", 2);
+		private var SteamWrap_GetAnalogActionData_eMode = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_eMode", 1);
+		private var SteamWrap_GetAnalogActionData_x     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_x", 1);
+		private var SteamWrap_GetAnalogActionData_y     = CFFI.load("steamworks", "SteamWrap_GetAnalogActionData_y", 1);
+	private var SteamWrap_GetDigitalActionHandle  = CFFI.load("steamworks", "SteamWrap_GetDigitalActionHandle", 1);
+	private var SteamWrap_TriggerHapticPulse      = CFFI.load("steamworks", "SteamWrap_TriggerHapticPulse", 3);
+	private var SteamWrap_TriggerRepeatedHapticPulse = CFFI.load("steamworks", "SteamWrap_TriggerRepeatedHapticPulse", 6);
 	
 	private function new(CustomTrace:String->Void) {
 		#if sys		//TODO: figure out what targets this will & won't work with and upate this guard
@@ -357,18 +359,18 @@ class Controller
 		
 		try {
 			//Old-school CFFI calls:
-			SteamWrap_GetConnectedControllers = lime.system.CFFI.load("steamworks", "SteamWrap_GetConnectedControllers", 0);
-			SteamWrap_GetDigitalActionOrigins = lime.system.CFFI.load("steamworks", "SteamWrap_GetDigitalActionOrigins", 3);
-			SteamWrap_GetAnalogActionOrigins = lime.system.CFFI.load("steamworks", "SteamWrap_GetAnalogActionOrigins", 3);
-			SteamWrap_InitControllers = lime.system.CFFI.load("steamworks", "SteamWrap_InitControllers", 0);
-			SteamWrap_ShutdownControllers = lime.system.CFFI.load("steamworks", "SteamWrap_ShutdownControllers", 0);
+			SteamWrap_GetConnectedControllers = CFFI.load("steamworks", "SteamWrap_GetConnectedControllers", 0);
+			SteamWrap_GetDigitalActionOrigins = CFFI.load("steamworks", "SteamWrap_GetDigitalActionOrigins", 3);
+			SteamWrap_GetAnalogActionOrigins = CFFI.load("steamworks", "SteamWrap_GetAnalogActionOrigins", 3);
+			SteamWrap_InitControllers = CFFI.load("steamworks", "SteamWrap_InitControllers", 0);
+			SteamWrap_ShutdownControllers = CFFI.load("steamworks", "SteamWrap_ShutdownControllers", 0);
 			
-			SteamWrap_GetControllerMaxCount = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxCount", 0);
-			SteamWrap_GetControllerMaxAnalogActions = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxAnalogActions", 0);
-			SteamWrap_GetControllerMaxDigitalActions = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxDigitalActions", 0);
-			SteamWrap_GetControllerMaxOrigins = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxOrigins", 0);
-			SteamWrap_GetControllerMaxAnalogActionData = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMaxAnalogActionData", 0);
-			SteamWrap_GetControllerMinAnalogActionData = lime.system.CFFI.load("steamworks", "SteamWrap_GetControllerMinAnalogActionData", 0);
+			SteamWrap_GetControllerMaxCount = CFFI.load("steamworks", "SteamWrap_GetControllerMaxCount", 0);
+			SteamWrap_GetControllerMaxAnalogActions = CFFI.load("steamworks", "SteamWrap_GetControllerMaxAnalogActions", 0);
+			SteamWrap_GetControllerMaxDigitalActions = CFFI.load("steamworks", "SteamWrap_GetControllerMaxDigitalActions", 0);
+			SteamWrap_GetControllerMaxOrigins = CFFI.load("steamworks", "SteamWrap_GetControllerMaxOrigins", 0);
+			SteamWrap_GetControllerMaxAnalogActionData = CFFI.load("steamworks", "SteamWrap_GetControllerMaxAnalogActionData", 0);
+			SteamWrap_GetControllerMinAnalogActionData = CFFI.load("steamworks", "SteamWrap_GetControllerMinAnalogActionData", 0);
 		}
 		catch (e:Dynamic) {
 			customTrace("Running non-Steam version (" + e + ")");

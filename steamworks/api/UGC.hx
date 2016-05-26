@@ -1,4 +1,6 @@
 package steamworks.api;
+
+import lime.system.CFFI;
 import steamworks.api.Steam;
 
 /**
@@ -85,14 +87,14 @@ class UGC
 		
 		try {
 			//Old-school CFFI calls:
-			SteamWrap_CreateUGCItem = lime.system.CFFI.load("steamworks", "SteamWrap_CreateUGCItem", 1);
-			SteamWrap_SetUGCItemContent = lime.system.CFFI.load("steamworks", "SteamWrap_SetUGCItemContent", 2);
-			SteamWrap_SetUGCItemDescription = lime.system.CFFI.load("steamworks", "SteamWrap_SetUGCItemDescription", 2);
-			SteamWrap_SetUGCItemPreviewImage = lime.system.CFFI.load("steamworks", "SteamWrap_SetUGCItemPreviewImage", 2);
-			SteamWrap_SetUGCItemTitle = lime.system.CFFI.load("steamworks", "SteamWrap_SetUGCItemTitle", 2);
-			SteamWrap_SetUGCItemVisibility = lime.system.CFFI.load("steamworks", "SteamWrap_SetUGCItemVisibility", 2);
-			SteamWrap_StartUpdateUGCItem = lime.system.CFFI.load("steamworks", "SteamWrap_StartUpdateUGCItem", 2);
-			SteamWrap_SubmitUGCItemUpdate = lime.system.CFFI.load("steamworks", "SteamWrap_SubmitUGCItemUpdate", 2);
+			SteamWrap_CreateUGCItem = CFFI.load("steamworks", "SteamWrap_CreateUGCItem", 1);
+			SteamWrap_SetUGCItemContent = CFFI.load("steamworks", "SteamWrap_SetUGCItemContent", 2);
+			SteamWrap_SetUGCItemDescription = CFFI.load("steamworks", "SteamWrap_SetUGCItemDescription", 2);
+			SteamWrap_SetUGCItemPreviewImage = CFFI.load("steamworks", "SteamWrap_SetUGCItemPreviewImage", 2);
+			SteamWrap_SetUGCItemTitle = CFFI.load("steamworks", "SteamWrap_SetUGCItemTitle", 2);
+			SteamWrap_SetUGCItemVisibility = CFFI.load("steamworks", "SteamWrap_SetUGCItemVisibility", 2);
+			SteamWrap_StartUpdateUGCItem = CFFI.load("steamworks", "SteamWrap_StartUpdateUGCItem", 2);
+			SteamWrap_SubmitUGCItemUpdate = CFFI.load("steamworks", "SteamWrap_SubmitUGCItemUpdate", 2);
 		}
 		catch (e:Dynamic) {
 			customTrace("Running non-Steam version (" + e + ")");
