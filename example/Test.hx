@@ -120,7 +120,7 @@ class Test
 		trace("Achievement stored: " + id);
 	}
 
-	private static function steamWrap_onLeaderboardScoreDownloaded(score:steamwrap.api.Steam.LeaderboardScore)
+	private static function steamWrap_onLeaderboardScoreDownloaded(score:steamworks.api.Steam.LeaderboardScore)
 	{
 		trace("Leaderboard score downloaded: " + score.toString());
 	}
