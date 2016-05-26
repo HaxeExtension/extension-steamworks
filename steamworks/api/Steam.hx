@@ -1,7 +1,7 @@
-package steamwrap.api;
+package steamworks.api;
 import cpp.Lib;
 import haxe.Int64;
-import steamwrap.helpers.Loader;
+import steamworks.helpers.Loader;
 
 private enum LeaderboardOp
 {

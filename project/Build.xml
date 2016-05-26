@@ -1,0 +1,38 @@
+<xml>
+	
+	<include name="${HXCPP}/build-tool/BuildCommon.xml" />
+	<set name="debug_extra" value="-debug" if="fulldebug" />
+	
+	<files id="common">
+		
+		<compilerflag value="-I${STEAMWORKS_SDK}/public" />
+		
+		<file name="src/SteamWrap.cpp" />
+		
+	</files>
+	
+	<target id="NDLL" output="${LIBPREFIX}steamworks${debug_extra}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
+		
+		<outdir name="../ndll/${BINDIR}" />
+		
+		<ext value=".ndll" if="windows || mac || linux" />
+		
+		<files id="common" />
+		
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/steam_api.lib" if="windows" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/osx32/libsteam_api.dylib" if="macos HXCPP_M32" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/osx64/libsteam_api.dylib" if="macos HXCPP_M64" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/linux32/libsteam_api.so" if="linux HXCPP_M32" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/linux64/libsteam_api.so" if="linux HXCPP_M64" />
+		
+		<flag value="-Wl,-rpath,'$ORIGIN/:${STEAMWORKS_SDK}/redistributable_bin:/usr/lib'" if="linux" />
+		
+	</target>
+	
+	<target id="default">
+		
+		<target id="NDLL" />
+		
+	</target>
+	
+</xml>

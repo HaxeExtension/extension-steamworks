@@ -1,4 +1,4 @@
-package steamwrap.data;
+package steamworks.data;
 
 /**
  * ...

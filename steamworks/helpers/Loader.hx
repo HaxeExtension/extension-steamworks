@@ -1,4 +1,4 @@
-package steamwrap.helpers;
+package steamworks.helpers;
 
 #if macro
 import haxe.macro.Expr;

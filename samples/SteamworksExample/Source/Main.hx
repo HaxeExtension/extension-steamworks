@@ -1,10 +1,19 @@
-import steamworks.api.Steam;
-import steamworks.api.Controller;
+package;
 
-class Test
-{
-	static function main()
-	{
+
+import openfl.display.Sprite;
+import openfl.events.Event;
+import steamworks.api.Controller;
+import steamworks.api.Steam;
+
+
+class Main extends Sprite {
+	
+	
+	public function new () {
+		
+		super ();
+		
 		trace("Start");
 		
 		var appID:Int = -1;			//PUT YOUR APP ID HERE!
@@ -95,33 +104,41 @@ class Test
 			}
 		}
 		
-		while (true)
-		{
-			Steam.onEnterFrame();
-			Sys.sleep(0.1);
-			
-			if (controllers != null && controllers.length > 0)
-			{
-				Steam.controllers.activateActionSet(controllers[0], inGameControls);
-				var currentActionSet = Steam.controllers.getCurrentActionSet(controllers[0]);
-				trace("current action set = " + currentActionSet);
-				
-				var fireData = Steam.controllers.getDigitalActionData(controllers[0], fire);
-				trace("fireData: bState = " + fireData.bState + " bActive = " + fireData.bActive);
-				
-				var moveData = Steam.controllers.getAnalogActionData(controllers[0], move);
-				trace("moveData: eMode = " + moveData.eMode + " x/y = " + moveData.x + "/" + moveData.y + " bActive = " + moveData.bActive);
-			}
-		}
+		addEventListener (Event.ENTER_FRAME, this_onEnterFrame);
+		
 	}
-
+	
+	
 	private static function steamWrap_onAchievementStored(id:String)
 	{
 		trace("Achievement stored: " + id);
 	}
-
+	
+	
 	private static function steamWrap_onLeaderboardScoreDownloaded(score:steamwrap.api.Steam.LeaderboardScore)
 	{
 		trace("Leaderboard score downloaded: " + score.toString());
 	}
+	
+	
+	private function this_onEnterFrame (event:Event):Void {
+		
+		Steam.onEnterFrame();
+		
+		if (controllers != null && controllers.length > 0)
+		{
+			Steam.controllers.activateActionSet(controllers[0], inGameControls);
+			var currentActionSet = Steam.controllers.getCurrentActionSet(controllers[0]);
+			trace("current action set = " + currentActionSet);
+			
+			var fireData = Steam.controllers.getDigitalActionData(controllers[0], fire);
+			trace("fireData: bState = " + fireData.bState + " bActive = " + fireData.bActive);
+			
+			var moveData = Steam.controllers.getAnalogActionData(controllers[0], move);
+			trace("moveData: eMode = " + moveData.eMode + " x/y = " + moveData.x + "/" + moveData.y + " bActive = " + moveData.bActive);
+		}
+		
+	}
+	
+	
 }

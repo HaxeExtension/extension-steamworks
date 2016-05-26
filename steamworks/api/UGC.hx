@@ -1,8 +1,8 @@
-package steamwrap.api;
+package steamworks.api;
 import cpp.Lib;
-import steamwrap.api.Steam;
-import steamwrap.helpers.Loader;
-import steamwrap.helpers.MacroHelper;
+import steamworks.api.Steam;
+import steamworks.helpers.Loader;
+import steamworks.helpers.MacroHelper;
 
 /**
  * The User Generated Content API. Used by API.hx, should never be created manually by the user.
@@ -10,7 +10,7 @@ import steamwrap.helpers.MacroHelper;
  * Access it via API.ugcstatic variable
  */
 
-@:allow(steamwrap.api.Steam)
+@:allow(steamworks.api.Steam)
 class UGC
 {
 	/*************PUBLIC***************/

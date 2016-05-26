@@ -1,7 +1,7 @@
-package steamwrap.data;
+package steamworks.data;
 import haxe.EnumTools;
 import haxe.Json;
-import steamwrap.data.Locale;
+import steamworks.data.Locale;
 
 /**
  * A strongly-typed data structure representation of the "game_actions_xyz.vdf"

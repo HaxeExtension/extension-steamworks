@@ -1,7 +1,7 @@
-package steamwrap.api;
+package steamworks.api;
 import cpp.Lib;
-import steamwrap.helpers.Loader;
-import steamwrap.helpers.MacroHelper;
+import steamworks.helpers.Loader;
+import steamworks.helpers.MacroHelper;
 
 /**
  * The Steam Controller API. Used by API.hx, should never be created manually by the user.
@@ -9,7 +9,7 @@ import steamwrap.helpers.MacroHelper;
  * Access it via API.controller static variable
  */
 
-@:allow(steamwrap.api.Steam)
+@:allow(steamworks.api.Steam)
 class Controller
 {
 	/**
@@ -458,10 +458,10 @@ class ControllerAnalogActionData
 @:enum abstract EControllerActionOrigin(Int) {
 	
 	public static var fromStringMap(default, null):Map<String, EControllerActionOrigin>
-		= MacroHelper.buildMap("steamwrap.api.EControllerActionOrigin");
+		= MacroHelper.buildMap("steamworks.api.EControllerActionOrigin");
 	
 	public static var toStringMap(default, null):Map<EControllerActionOrigin, String>
-		= MacroHelper.buildMap("steamwrap.api.EControllerActionOrigin", true);
+		= MacroHelper.buildMap("steamworks.api.EControllerActionOrigin", true);
 		
 	public var NONE = 0;
 	public var A = 1;
