@@ -4,9 +4,9 @@
 	<ndll name="steamworks" />
 	
 	<dependency path="${STEAMWORKS_SDK}/redistributable_bin/steam_api.dll" if="windows" />
-	<dependency path="${STEAMWORKS_SDK}/redistributable_bin/lib/osx64/libsteam_api.dylib" if="mac" />
-	<template path="${STEAMWORKS_SDK}/redistributable_bin/lib/linux32/libsteam_api.so" rename="../../../linux/cpp/bin/libsteam_api.so" if="linux" />
-	<template path="${STEAMWORKS_SDK}/redistributable_bin/lib/linux64/libsteam_api.so" rename="../../../linux64/cpp/bin/libsteam_api.so" if="linux" />
+	<dependency path="${STEAMWORKS_SDK}/redistributable_bin/osx64/libsteam_api.dylib" if="mac" />
+	<template path="${STEAMWORKS_SDK}/redistributable_bin/linux32/libsteam_api.so" rename="../../../linux/cpp/bin/libsteam_api.so" if="linux" />
+	<template path="${STEAMWORKS_SDK}/redistributable_bin/linux64/libsteam_api.so" rename="../../../linux64/cpp/bin/libsteam_api.so" if="linux" />
 	
 	<template path="templates/steam_appid.txt" rename="steam_appid.txt" unless="final || mac" />
 	<template path="templates/steam_appid.txt" rename="bin/${APP_FILE}.app/Contents/MacOS/steam_appid.txt" if="mac" unless="final" />

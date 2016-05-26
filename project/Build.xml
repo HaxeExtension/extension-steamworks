@@ -20,12 +20,10 @@
 		<files id="common" />
 		
 		<lib name="${STEAMWORKS_SDK}/redistributable_bin/steam_api.lib" if="windows" />
-		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/osx32/libsteam_api.dylib" if="macos HXCPP_M32" />
-		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/osx64/libsteam_api.dylib" if="macos HXCPP_M64" />
-		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/linux32/libsteam_api.so" if="linux HXCPP_M32" />
-		<lib name="${STEAMWORKS_SDK}/redistributable_bin/lib/linux64/libsteam_api.so" if="linux HXCPP_M64" />
-		
-		<flag value="-Wl,-rpath,'$ORIGIN/:${STEAMWORKS_SDK}/redistributable_bin:/usr/lib'" if="linux" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/osx32/libsteam_api.dylib" if="macos HXCPP_M32" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/osx64/libsteam_api.dylib" if="macos HXCPP_M64" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/linux32/libsteam_api.so" if="linux HXCPP_M32" />
+		<lib name="${STEAMWORKS_SDK}/redistributable_bin/linux64/libsteam_api.so" if="linux HXCPP_M64" />
 		
 	</target>
 	
