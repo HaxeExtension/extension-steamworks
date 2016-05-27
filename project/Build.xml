@@ -28,6 +28,8 @@
 		<lib name="${STEAMWORKS_SDK}/redistributable_bin/linux32/libsteam_api.so" if="linux HXCPP_M32" />
 		<lib name="${STEAMWORKS_SDK}/redistributable_bin/linux64/libsteam_api.so" if="linux HXCPP_M64" />
 		
+		<flag value="-Wl,-rpath,'$ORIGIN/:/lib:/usr/lib'" if="linux" />
+		
 	</target>
 	
 	<target id="default">
