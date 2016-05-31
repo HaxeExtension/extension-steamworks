@@ -1,11 +1,5 @@
 package steamworks.api;
 
-#if lime
-import lime.system.CFFI;
-#elseif openfl_legacy
-typedef CFFI = openfl.Lib;
-#end
-
 import steamworks.api.Steam;
 
 /**
